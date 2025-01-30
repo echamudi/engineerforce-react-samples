@@ -4,7 +4,9 @@
 	"name": "Node.js & TypeScript",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"image": "mcr.microsoft.com/devcontainers/typescript-node:1-22-bookworm",
-
+	"mounts": [
+		"source=${localEnv:HOME}/.gnupg,target=/home/node/.gnupg,type=bind,consistency=cached"
+	],
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {
 			"installDirectlyFromGitHubRelease": true,
