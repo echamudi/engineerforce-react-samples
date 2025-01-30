@@ -12,7 +12,7 @@
 			"installDirectlyFromGitHubRelease": true,
 			"version": "latest"
 		}
-	}
+	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
@@ -21,9 +21,8 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": [
-	// 	"sudo apt-get update && sudo apt-get install gnupg2 -y"
-	// ]
+	// "workspaceFolder": "${localWorkspaceFolder}",
+	"postCreateCommand": "bash init.sh"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
