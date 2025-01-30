@@ -1,0 +1,14 @@
+{
+    "editor.rulers": [100],
+    "eslint.format.enable": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+    },
+    "eslint.workingDirectories": [
+        "src"
+    ],
+    "[typescriptreact]": {
+        // "editor.defaultFormatter": "vscode.typescript-language-features"
+    }
+}
