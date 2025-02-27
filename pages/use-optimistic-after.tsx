@@ -9,9 +9,8 @@ interface Todo {
 }
 
 async function apiUploadTodo(text: string): Promise<Todo> {
-  // Return todo item after 1 second
+  // Simulate API latency with a 1-second delay
   await new Promise((resolve) => setTimeout(resolve, 1000))
-
   return {
     id: Math.random().toString(36).slice(2, 9),
     text
