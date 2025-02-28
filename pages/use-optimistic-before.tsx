@@ -8,7 +8,7 @@ interface Todo {
 }
 
 async function apiUploadTodo(text: string): Promise<Todo> {
-  // Simulate API latency with a 1-second delay
+  // 1秒の遅延で API レイテンシーをシミュレーション
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return {
     id: Math.random().toString(36).slice(2, 9),
@@ -28,7 +28,7 @@ function TodoList() {
   return (
     <>
       <input type='text' name='todo' placeholder='New Todo' ref={textFieldRef} />
-      <button onClick={onClick}>Add</button>
+      <button onClick={onClick}>追加</button>
 
       <ul>
         {todos.map((todo) => (

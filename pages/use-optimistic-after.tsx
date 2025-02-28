@@ -9,7 +9,7 @@ interface Todo {
 }
 
 async function apiUploadTodo(text: string): Promise<Todo> {
-  // Simulate API latency with a 1-second delay
+  // 1秒の遅延で API レイテンシーをシミュレーション
   await new Promise((resolve) => setTimeout(resolve, 1000))
   return {
     id: Math.random().toString(36).slice(2, 9),
@@ -35,8 +35,11 @@ function TodoList() {
         return
       }
 
+      // 楽観的に UI を更新する
       addOptimisticTodo(textFieldRef.current?.value || '')
+      // 非同期処理を実行する
       const resultItem = await apiUploadTodo(textFieldRef.current?.value || '')
+      // 楽観的なエントリーを実際のデータに置き換える
       setTodos((todos) => [...todos, resultItem])
     })
   }
@@ -44,13 +47,13 @@ function TodoList() {
   return (
     <>
       <input type='text' name='todo' placeholder='New Todo' ref={textFieldRef} />
-      <button onClick={onClick}>Add</button>
+      <button onClick={onClick}>追加</button>
 
       <ul>
         {optimisticTodos.map((todo) => (
           <li key={todo.id}>
             {todo.text}
-            {todo.loading && <small> (Adding...)</small>}
+            {todo.loading && <small> (追加中...)</small>}
           </li>
         ))}
       </ul>
